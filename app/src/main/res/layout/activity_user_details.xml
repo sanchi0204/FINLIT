@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".UserDetails">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/select_item"
+        app:itemTextColor="@drawable/select_item"
+        app:menu="@menu/menu" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <include
+                android:layout_weight="0"
+                android:id="@+id/first_layout"
+                layout="@layout/intro_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="@dimen/margin_end" />
+
+            <Button
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginStart="@dimen/name_16"
+                android:layout_marginEnd="@dimen/name_16"
+                android:layout_marginTop="@dimen/name_16"
+                android:background="@drawable/card_bg"
+                android:text="@string/evaluate"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="@dimen/text_size_normal"
+                android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <!--    <View-->
+            <!--        android:id="@+id/view_back"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="200dp"-->
+            <!--        android:background="@drawable/gradient" />-->
+
+            <!--    <ImageView-->
+            <!--        android:id="@+id/img_back"-->
+            <!--        android:layout_width="250dp"-->
+            <!--        android:layout_height="250dp"-->
+            <!--        android:layout_gravity="center_horizontal"-->
+            <!--        android:layout_marginTop="-180dp"/>-->
+
+
+            <!--        <HorizontalScrollView-->
+            <!--            android:id="@+id/horizontal_view"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            >-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:baselineAligned="false">
+
+                <include
+                    android:id="@+id/salary_layout"
+                    layout="@layout/card_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/perc_layout"
+                    layout="@layout/card_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1" />
+
+                <!--                <include-->
+                <!--                    android:id="@+id/invest_layout"-->
+                <!--                    layout="@layout/card_layout"-->
+                <!--                    android:layout_marginStart="10dp"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"/>-->
+
+                <!--                <include-->
+                <!--                    android:id="@+id/compound_layout"-->
+                <!--                    layout="@layout/card_layout"-->
+                <!--                    android:layout_marginStart="10dp"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"/>-->
+
+            </LinearLayout>
+            <!--        </HorizontalScrollView>-->
+
+            <TextView
+                android:id="@+id/risk_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/name_16"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/risk"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:fontFamily="@font/cabin_bold"
+                android:textStyle="bold"
+                />
+
+            <RadioGroup
+                android:id="@+id/risk_grp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginEnd="@dimen/margin_end"
+                android:layout_marginTop="@dimen/margin_start"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/low_risk"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_marginTop="@dimen/margin_start"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:layout_marginBottom="@dimen/margin_start"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="4dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="@dimen/margin_start"
+                    android:text="@string/low"
+                    android:textColor="@drawable/text_color"
+                    android:textSize="@dimen/text_size_small_18" />
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/medium_risk"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="@dimen/margin_start"
+                    android:layout_marginTop="@dimen/margin_start"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="4dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="@dimen/margin_start"
+                    android:text="@string/medium"
+                    android:textSize="@dimen/text_size_small_18"
+                    android:textColor="@drawable/text_color" />
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/high_risk"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="@dimen/margin_start"
+                    android:layout_marginTop="@dimen/margin_start"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="4dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="@dimen/margin_start"
+                    android:text="@string/high"
+                    android:textSize="@dimen/text_size_small_18"
+                    android:textColor="@drawable/text_color" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/liquidity_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/name_16"
+                android:layout_marginTop="@dimen/name_16"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="@string/liquidity"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:fontFamily="@font/cabin_bold"
+                android:textStyle="bold"
+                />
+
+            <RadioGroup
+                android:id="@+id/liquidity_grp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginEnd="@dimen/margin_end"
+                android:layout_marginTop="@dimen/margin_start"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/low_liquidity"
+                    android:layout_width="100dp"
+                    android:layout_marginBottom="@dimen/margin_start"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_marginTop="@dimen/margin_start"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="4dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="@dimen/margin_start"
+                    android:text="@string/low"
+                    android:textSize="@dimen/text_size_small_18"
+                    android:textColor="@drawable/text_color" />
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/medium_liquidity"
+                    android:layout_width="100dp"
+                    android:layout_marginBottom="@dimen/margin_start"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_marginTop="@dimen/margin_start"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="4dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="@dimen/margin_start"
+                    android:text="@string/medium"
+                    android:textSize="@dimen/text_size_small_18"
+                    android:textColor="@drawable/text_color" />
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/high_liquidity"
+                    android:layout_width="100dp"
+                    android:layout_marginBottom="@dimen/margin_start"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_marginTop="@dimen/margin_start"
+                    android:layout_marginEnd="@dimen/margin_end"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="4dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="@dimen/margin_start"
+                    android:text="@string/high"
+                    android:textSize="@dimen/text_size_small_18"
+                    android:textColor="@drawable/text_color" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
