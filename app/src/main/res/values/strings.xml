@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">Finlit</string>
+    <string name="app_name">FinLit</string>
+    <string name="salary">Salary</string>
+    <string name="salary_perc">Percentage</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
+    <string name="risk">Risk</string>
+    <string name="liquidity">Liquidity</string>
+    <string name="hi">Hi</string>
+    <string name="welcome">Welcome</string>
+    <string name="process">We are processing the details</string>
+    <string name="hold">Hold On</string>
+    <string name="evaluate">Evaluate</string>
+    <string name="home">Home</string>
+    <string name="graph">Graph</string>
+    <string name="settings">Settings</string>
 </resources>
