@@ -3,6 +3,8 @@ package com.example.finlit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -39,7 +41,10 @@ public class UserDetails extends AppCompatActivity {
     private MediaType mediaType;
     private RequestBody requestBody;
     private Button connect;
-    private int salary, percentage;
+    private int salary, percentage, years;
+    EditText salary_edit_text,percentage_edit_text,yearsEditText;
+    AlertDialog.Builder alertDialogBuilder;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +57,38 @@ public class UserDetails extends AppCompatActivity {
         salary_text.setText(R.string.salary);
         ImageView salary_img = salaryLayout.findViewById(R.id.card_img);
         salary_img.setImageResource(R.drawable.salary);
-        EditText salary_edit_text = salaryLayout.findViewById(R.id.card_edit_text);
-        //salary = Integer.parseInt(salary_edit_text.getText().toString());
-
+         salary_edit_text= salaryLayout.findViewById(R.id.card_edit_text);
+         progressDialog=new ProgressDialog(UserDetails.this);
+         progressDialog.setTitle("Hang On!");
+         progressDialog.setMessage("We are evaluating..");
+         progressDialog.setCanceledOnTouchOutside(false);
+        alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Oops!");
+        alertDialogBuilder.setMessage("Not entered all the details");
         connect = findViewById(R.id.evaluateBtn);
 
 
-        // Percentage Layout
+        // years layout
+        View YearsLayout = findViewById(R.id.yrs_layout);
+        TextView yrsTxt = (TextView) YearsLayout.findViewById(R.id.card_text);
+        yrsTxt.setText(R.string.yrs_to_invest);
+        ImageView yrsImg = YearsLayout.findViewById(R.id.card_img);
+        yrsImg.setImageResource(R.drawable.yrs_invest);
+
+        yearsEditText=YearsLayout.findViewById(R.id.card_edit_text);
+        //EditText percentage_edit_text = YearsLayout.findViewById(R.id.card_edit_text);
+
+
         View percentageLayout = findViewById(R.id.perc_layout);
         TextView percent_text = (TextView) percentageLayout.findViewById(R.id.card_text);
         percent_text.setText(R.string.salary_perc);
         ImageView percentage_img = percentageLayout.findViewById(R.id.card_img);
         percentage_img.setImageResource(R.drawable.percentage);
-        EditText percentage_edit_text = percentageLayout.findViewById(R.id.card_edit_text);
 
+        percentage_edit_text=percentageLayout.findViewById(R.id.card_edit_text);
+        //EditText percentage_edit_text = percentageLayout.findViewById(R.id.card_edit_text);
         //percentage = Integer.parseInt(percentage_edit_text.getText().toString());
+
 
       //  String percentage = percentage_edit_text.getText().toString();
 
@@ -107,8 +129,13 @@ public class UserDetails extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(salary_edit_text.getText().toString().equals("")||percentage_edit_text.getText().toString().equals("")||yearsEditText.getText().toString().equals(""))
+                {
+                    alertDialogBuilder.show();
+                    return;
+                }
                 try {
+                    progressDialog.show();
                     postRequest("your message here", url);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -129,12 +156,14 @@ public class UserDetails extends AppCompatActivity {
     }
 
     private void postRequest(String msg, String url) throws JSONException {
-
+        salary = Integer.parseInt(salary_edit_text.getText().toString());
+        percentage = Integer.parseInt(percentage_edit_text.getText().toString());
+        years=Integer.parseInt(yearsEditText.getText().toString());
         JSONObject json=new JSONObject();
         json.put("v1","idcw");
-        json.put("v2",45);
-        json.put("v3",8000);
-        json.put("v4",5);
+        json.put("v2",percentage);
+        json.put("v3",salary/percentage);
+        json.put("v4",years);
 
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, String.valueOf(json));
@@ -161,11 +190,11 @@ public class UserDetails extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         Toast.makeText(UserDetails.this, "Success"+ response.toString(), Toast.LENGTH_LONG).show();
-
+                        parseJson();
                             Log.d("TESTING", "run: "+res);
 
                         Log.d("TESTING", "run: "+call.toString());
-                        parseJson();
+
                     }
                 });
             }
@@ -176,6 +205,25 @@ public class UserDetails extends AppCompatActivity {
 
         try {
             JSONObject jsonObj = new JSONObject(res);
+            JSONObject largecap= jsonObj.getJSONObject("largecap");
+            JSONObject smallcap= jsonObj.getJSONObject("smallcap");
+            JSONObject debt= jsonObj.getJSONObject("debt");
+            double largecapPercentage=largecap.getDouble("percent");
+            double smallcapPercentage=smallcap.getDouble("percent");
+            double debtPercentage=debt.getDouble("percent");
+            double ret=jsonObj.getDouble("return");
+            double amountInvested=jsonObj.getDouble("amountinvested");
+            Log.d("TESTING", "parseJson: "+smallcapPercentage);
+            Bundle bundle=new Bundle();
+            bundle.putDouble("lcp",largecapPercentage);
+            bundle.putDouble("scp",smallcapPercentage);
+            bundle.putDouble("debt",debtPercentage);
+            bundle.putDouble("ret",ret);
+            bundle.putDouble("inv",amountInvested);
+            progressDialog.dismiss();
+            Intent intent=new Intent(UserDetails.this, Graph.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -183,3 +231,5 @@ public class UserDetails extends AppCompatActivity {
 
     }
 }
+
+

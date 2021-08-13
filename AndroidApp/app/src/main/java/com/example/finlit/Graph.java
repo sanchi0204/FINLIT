@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import okhttp3.Call;
@@ -42,10 +43,32 @@ public class Graph extends AppCompatActivity {
     PieData pieData;
     int [] colorClassArray= new int[]{Color.RED,Color.GREEN,Color.BLUE};
 
+    double lcp,scp,debt,ret,inv,lcpret,scpret,debtret;
+    private TextView invTV,retTV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
+
+        Bundle bundle=getIntent().getExtras();
+        lcp=bundle.getDouble("lcp");
+        scp=bundle.getDouble("scp");
+        debt=bundle.getDouble("debt");
+        ret=bundle.getDouble("ret");
+        inv=bundle.getDouble("inv");
+
+        lcpret=(ret*lcp)/100;
+        scpret=(ret*scp)/100;
+        debtret=(ret*debt)/100;
+
+
+        invTV=findViewById(R.id.invid);
+        retTV=findViewById(R.id.returnsTV);
+        invTV.setText("Total Investment: "+String.valueOf(inv));
+        retTV.setText("Total return: "+String.valueOf(ret));
+
+
         pieChart = (PieChart) findViewById(R.id.piechart);
         barChart= (BarChart) findViewById(R.id.barchart);
         pientries = new ArrayList<>();
@@ -106,16 +129,16 @@ public class Graph extends AppCompatActivity {
        });
     }
     public void AddValuesToPIEENTRY() {
-        pientries.add(new PieEntry(2f, "Low Cap"));
-        pientries.add(new PieEntry(4f, "Medium Cap"));
-        pientries.add(new PieEntry(6f, "Large Cap"));
+        pientries.add(new PieEntry((float) lcp, "Large Cap"));
+        pientries.add(new PieEntry((float) scp, "small Cap"));
+        pientries.add(new PieEntry((float) debt, "Debt"));
     }
 
     private ArrayList<BarEntry>barDataValues1(){
         ArrayList<BarEntry>dataVals=new ArrayList<BarEntry>();
-        dataVals.add(new BarEntry(0,3));
-        dataVals.add(new BarEntry(1,2));
-        dataVals.add(new BarEntry(2,5));
+        dataVals.add(new BarEntry(0, (float) lcpret));
+        dataVals.add(new BarEntry(1, (float) scpret));
+        dataVals.add(new BarEntry(2, (float) debtret));
         return dataVals;
     }
 
