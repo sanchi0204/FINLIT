@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Graph">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/select_item"
+        app:itemTextColor="@drawable/select_item"
+        android:layout_below="@+id/bchart"
+        app:menu="@menu/menu" />
     <TextView
         android:id="@+id/invid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/piechartl"
-        >
-    </TextView>
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_big"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        />
     <LinearLayout
         android:layout_marginTop="50dp"
         android:id="@id/piechartl"
@@ -31,20 +47,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bchart"
-        android:layout_below="@+id/piechartl">
+        android:layout_below="@id/returnsTV">
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barchart"
             android:layout_width="400dp"
             android:layout_height="300dp"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
+
     <TextView
         android:id="@+id/returnsTV"
         android:layout_width="wrap_content"
-        android:layout_alignTop="@+id/bchart"
         android:layout_height="wrap_content"
-        android:layout_gravity="top">
-    </TextView>
+        android:layout_below="@+id/piechartl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/salary"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold" />
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</ScrollView>
