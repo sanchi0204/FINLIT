@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FinLit.iml" filepath="$PROJECT_DIR$/.idea/modules/FinLit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FinLit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FinLit.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ZetaHacks.iml" filepath="$PROJECT_DIR$/.idea/ZetaHacks.iml" />
     </modules>
   </component>
 </project>

@@ -104,29 +104,29 @@ public class Graph extends AppCompatActivity {
         barChart.invalidate();
 
 
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-//        bottomNavigationView.setSelectedItemId(R.id.graph);
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-//            //Log.d("DEBUG", "onCreate: "+item.getItemId());
-//            switch (item.getItemId())
-//            {
-//                case R.id.graph:
-//                    return true;
-//
-//                case R.id.home:
-//                    startActivity(new Intent(getApplicationContext(), UserDetails.class));
-//                    overridePendingTransition(0,0);
-//                    return true;
-//
-//                case R.id.settings:
-//                    startActivity(new Intent(getApplicationContext(), Settings.class));
-//                    overridePendingTransition(0,0);
-//                    return true;
-//
-//            }
-//            return false;
-//        });
+       BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+       bottomNavigationView.setSelectedItemId(R.id.graph);
+
+       bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+           //Log.d("DEBUG", "onCreate: "+item.getItemId());
+           switch (item.getItemId())
+           {
+               case R.id.graph:
+                   return true;
+
+               case R.id.home:
+                   startActivity(new Intent(getApplicationContext(), UserDetails.class));
+                   overridePendingTransition(0,0);
+                   return true;
+
+               // case R.id.settings:
+               //     startActivity(new Intent(getApplicationContext(), Settings.class));
+               //     overridePendingTransition(0,0);
+               //     return true;
+
+           }
+           return false;
+       });
     }
     public void AddValuesToPIEENTRY() {
         pientries.add(new PieEntry((float) lcp, "Large Cap"));

@@ -67,8 +67,25 @@ public class UserDetails extends AppCompatActivity {
         percent_text.setText(R.string.salary_perc);
         ImageView percentage_img = percentageLayout.findViewById(R.id.card_img);
         percentage_img.setImageResource(R.drawable.percentage);
+<<<<<<< HEAD
         percentage_edit_text=percentageLayout.findViewById(R.id.card_edit_text);
 
+=======
+        EditText percentage_edit_text = percentageLayout.findViewById(R.id.card_edit_text);
+
+        //percentage = Integer.parseInt(percentage_edit_text.getText().toString());
+>>>>>>> cf129720f90c5551488134c6dd3f92332ac1db7a
+
+      //  String percentage = percentage_edit_text.getText().toString();
+
+        // Years Layout
+        View yearsLayout = findViewById(R.id.yrs_layout);
+        TextView yrs_text = (TextView) yearsLayout.findViewById(R.id.card_text);
+        yrs_text.setText(R.string.yrs_to_invest);
+        ImageView yrs_img = yearsLayout.findViewById(R.id.card_img);
+        yrs_img.setImageResource(R.drawable.yrs_invest);
+        EditText yrs_edit_text = yearsLayout.findViewById(R.id.card_edit_text);
+        String yrs = yrs_edit_text.getText().toString();
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -86,10 +103,10 @@ public class UserDetails extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
 
-                case R.id.settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    overridePendingTransition(0, 0);
-                    return true;
+//                case R.id.settings:
+//                    startActivity(new Intent(getApplicationContext(), Settings.class));
+//                    overridePendingTransition(0,0);
+//                    return true;
 
             }
             return false;
