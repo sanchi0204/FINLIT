@@ -202,86 +202,86 @@
             </RadioGroup>
 
 
-            <TextView
-                android:id="@+id/liquidity_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/name_16"
-                android:layout_marginTop="@dimen/name_16"
-                android:drawablePadding="10dp"
-                android:gravity="center_vertical"
-                android:text="@string/liquidity"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:fontFamily="@font/cabin_bold"
-                android:textStyle="bold"
-                />
+<!--            <TextView-->
+<!--                android:id="@+id/liquidity_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="@dimen/name_16"-->
+<!--                android:layout_marginTop="@dimen/name_16"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="@string/liquidity"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="25sp"-->
+<!--                android:fontFamily="@font/cabin_bold"-->
+<!--                android:textStyle="bold"-->
+<!--                />-->
 
-            <RadioGroup
-                android:id="@+id/liquidity_grp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="@dimen/margin_start"
-                android:layout_marginEnd="@dimen/margin_end"
-                android:layout_marginTop="@dimen/margin_start"
-                android:orientation="horizontal">
+<!--            <RadioGroup-->
+<!--                android:id="@+id/liquidity_grp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_marginStart="@dimen/margin_start"-->
+<!--                android:layout_marginEnd="@dimen/margin_end"-->
+<!--                android:layout_marginTop="@dimen/margin_start"-->
+<!--                android:orientation="horizontal">-->
 
-                <RadioButton
-                    android:layout_weight="1"
-                    android:id="@+id/low_liquidity"
-                    android:layout_width="100dp"
-                    android:layout_marginBottom="@dimen/margin_start"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="@dimen/margin_start"
-                    android:layout_marginTop="@dimen/margin_start"
-                    android:layout_marginEnd="@dimen/margin_end"
-                    android:background="@drawable/radio_selector"
-                    android:button="@android:color/transparent"
-                    android:elevation="4dp"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:padding="@dimen/margin_start"
-                    android:text="@string/low"
-                    android:textSize="@dimen/text_size_small_18"
-                    android:textColor="@drawable/text_color" />
+<!--                <RadioButton-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:id="@+id/low_liquidity"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_marginBottom="@dimen/margin_start"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_marginStart="@dimen/margin_start"-->
+<!--                    android:layout_marginTop="@dimen/margin_start"-->
+<!--                    android:layout_marginEnd="@dimen/margin_end"-->
+<!--                    android:background="@drawable/radio_selector"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:elevation="4dp"-->
+<!--                    android:gravity="center_horizontal|center_vertical"-->
+<!--                    android:padding="@dimen/margin_start"-->
+<!--                    android:text="@string/low"-->
+<!--                    android:textSize="@dimen/text_size_small_18"-->
+<!--                    android:textColor="@drawable/text_color" />-->
 
-                <RadioButton
-                    android:layout_weight="1"
-                    android:id="@+id/medium_liquidity"
-                    android:layout_width="100dp"
-                    android:layout_marginBottom="@dimen/margin_start"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="@dimen/margin_start"
-                    android:layout_marginTop="@dimen/margin_start"
-                    android:layout_marginEnd="@dimen/margin_end"
-                    android:background="@drawable/radio_selector"
-                    android:button="@android:color/transparent"
-                    android:elevation="4dp"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:padding="@dimen/margin_start"
-                    android:text="@string/medium"
-                    android:textSize="@dimen/text_size_small_18"
-                    android:textColor="@drawable/text_color" />
+<!--                <RadioButton-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:id="@+id/medium_liquidity"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_marginBottom="@dimen/margin_start"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_marginStart="@dimen/margin_start"-->
+<!--                    android:layout_marginTop="@dimen/margin_start"-->
+<!--                    android:layout_marginEnd="@dimen/margin_end"-->
+<!--                    android:background="@drawable/radio_selector"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:elevation="4dp"-->
+<!--                    android:gravity="center_horizontal|center_vertical"-->
+<!--                    android:padding="@dimen/margin_start"-->
+<!--                    android:text="@string/medium"-->
+<!--                    android:textSize="@dimen/text_size_small_18"-->
+<!--                    android:textColor="@drawable/text_color" />-->
 
-                <RadioButton
-                    android:layout_weight="1"
-                    android:id="@+id/high_liquidity"
-                    android:layout_width="100dp"
-                    android:layout_marginBottom="@dimen/margin_start"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="@dimen/margin_start"
-                    android:layout_marginTop="@dimen/margin_start"
-                    android:layout_marginEnd="@dimen/margin_end"
-                    android:background="@drawable/radio_selector"
-                    android:button="@android:color/transparent"
-                    android:elevation="4dp"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:padding="@dimen/margin_start"
-                    android:text="@string/high"
-                    android:textSize="@dimen/text_size_small_18"
-                    android:textColor="@drawable/text_color" />
-            </RadioGroup>
+<!--                <RadioButton-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:id="@+id/high_liquidity"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_marginBottom="@dimen/margin_start"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_marginStart="@dimen/margin_start"-->
+<!--                    android:layout_marginTop="@dimen/margin_start"-->
+<!--                    android:layout_marginEnd="@dimen/margin_end"-->
+<!--                    android:background="@drawable/radio_selector"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:elevation="4dp"-->
+<!--                    android:gravity="center_horizontal|center_vertical"-->
+<!--                    android:padding="@dimen/margin_start"-->
+<!--                    android:text="@string/high"-->
+<!--                    android:textSize="@dimen/text_size_small_18"-->
+<!--                    android:textColor="@drawable/text_color" />-->
+<!--            </RadioGroup>-->
 
 
         </LinearLayout>
