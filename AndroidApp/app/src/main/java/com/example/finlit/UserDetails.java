@@ -3,6 +3,7 @@ package com.example.finlit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -40,7 +41,7 @@ public class UserDetails extends AppCompatActivity {
     private RequestBody requestBody;
     private Button connect;
     private int salary, percentage;
-
+    EditText salary_edit_text,percentage_edit_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +53,10 @@ public class UserDetails extends AppCompatActivity {
         salary_text.setText(R.string.salary);
         ImageView salary_img = salaryLayout.findViewById(R.id.card_img);
         salary_img.setImageResource(R.drawable.salary);
-        EditText salary_edit_text = salaryLayout.findViewById(R.id.card_edit_text);
-        //salary = Integer.parseInt(salary_edit_text.getText().toString());
+         salary_edit_text= salaryLayout.findViewById(R.id.card_edit_text);
+
+
+
 
         connect = findViewById(R.id.evaluateBtn);
 
@@ -64,8 +67,8 @@ public class UserDetails extends AppCompatActivity {
         percent_text.setText(R.string.salary_perc);
         ImageView percentage_img = percentageLayout.findViewById(R.id.card_img);
         percentage_img.setImageResource(R.drawable.percentage);
-        EditText percentage_edit_text = percentageLayout.findViewById(R.id.card_edit_text);
-        //percentage = Integer.parseInt(percentage_edit_text.getText().toString());
+        percentage_edit_text=percentageLayout.findViewById(R.id.card_edit_text);
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -117,11 +120,12 @@ public class UserDetails extends AppCompatActivity {
     }
 
     private void postRequest(String msg, String url) throws JSONException {
-
+        salary = Integer.parseInt(salary_edit_text.getText().toString());
+        percentage = Integer.parseInt(percentage_edit_text.getText().toString());
         JSONObject json=new JSONObject();
         json.put("v1","idcw");
-        json.put("v2",45);
-        json.put("v3",8000);
+        json.put("v2",percentage);
+        json.put("v3",salary/percentage);
         json.put("v4",5);
 
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -149,11 +153,11 @@ public class UserDetails extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         Toast.makeText(UserDetails.this, "Success"+ response.toString(), Toast.LENGTH_LONG).show();
-
+                        parseJson();
                             Log.d("TESTING", "run: "+res);
 
                         Log.d("TESTING", "run: "+call.toString());
-                        parseJson();
+
                     }
                 });
             }
@@ -164,6 +168,24 @@ public class UserDetails extends AppCompatActivity {
 
         try {
             JSONObject jsonObj = new JSONObject(res);
+            JSONObject largecap= jsonObj.getJSONObject("largecap");
+            JSONObject smallcap= jsonObj.getJSONObject("smallcap");
+            JSONObject debt= jsonObj.getJSONObject("debt");
+            double largecapPercentage=largecap.getDouble("percent");
+            double smallcapPercentage=smallcap.getDouble("percent");
+            double debtPercentage=debt.getDouble("percent");
+            double ret=jsonObj.getDouble("return");
+            double amountInvested=jsonObj.getDouble("amountinvested");
+            Log.d("TESTING", "parseJson: "+smallcapPercentage);
+            Bundle bundle=new Bundle();
+            bundle.putDouble("lcp",largecapPercentage);
+            bundle.putDouble("scp",smallcapPercentage);
+            bundle.putDouble("debt",debtPercentage);
+            bundle.putDouble("ret",ret);
+            bundle.putDouble("inv",amountInvested);
+            Intent intent=new Intent(UserDetails.this, Graph.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
         } catch (JSONException e) {
             e.printStackTrace();
         }
