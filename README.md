@@ -30,8 +30,6 @@ The predicted amount they will be investing in each category: Bar Graph.
 The  predicted amount of return: Bar Graph.
 
 # METHODOLOGY
-Model 1:  Predicts the future inflation rate using previous years data. This will help us to calculate amount after maturity.
-
 Model 2: Predict the type of portfolio which will be the best for the user according to the data is entered by them 
 How much percent equity
 How much percent Mutual funds
