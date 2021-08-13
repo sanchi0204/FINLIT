@@ -78,15 +78,21 @@ time=int(input('time'))
 time=time*12
 if(idcw_growth=='idcw'):
     p = portfolio(xc_idcw,xc1_idcw,xc2_idcw,risk,sip,time)
-    print('Total Returns ',p[0])
-    print('Total Investment ',sip*time)
-    print(p[4],' ',p[1])
-    print(p[5],' ',p[2])
-    print(p[6],' ',p[3])
+    #print('Total Returns ',p[0])
+    #print('Total Investment ',sip*time)
+    #print(p[4],' ',p[1])
+    #print(p[5],' ',p[2])
+    #print(p[6],' ',p[3])
+    dit = {'smallcap': {'name': p[5], 'percent': p[2]}, 'largecap': {'name': p[4], 'percent': p[1]},
+           'debt': {'name': p[6], 'percent': p[3]}, 'amountinvested': sip * time, 'return': p[0]}
+    print(dit)
 else:
     p = portfolio(xc_growth,xc1_growth,xc2_growth,risk,sip,time)
-    print('Total Returns ',p[0])
-    print('Total Investment ',sip*time)
-    print(p[4],' ',p[1])
-    print(p[5],' ',p[2])
-    print(p[6],' ',p[3])
+    #print('Total Returns ',p[0])
+    #print('Total Investment ',sip*time)
+    #print(p[4],' ',p[1])
+    #print(p[5],' ',p[2])
+    #print(p[6],' ',p[3])
+    dit = {'smallcap': {'name': p[5], 'percent': p[2]}, 'largecap': {'name': p[4], 'percent': p[1]},
+           'debt': {'name': p[6], 'percent': p[3]}, 'amountinvested': sip * time, 'return': p[0]}
+    print(dit)
