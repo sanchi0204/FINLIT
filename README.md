@@ -29,6 +29,17 @@ Portfolio of investment options: Pie Chart
 The predicted amount they will be investing in each category: Bar Graph. 
 The  predicted amount of return: Bar Graph.
 
+# SCREENSHOTS
+
+
+<table>   
+  <tr>
+    <td><img src="https://github.com/sanchi0204/NEETRA/blob/master/Readme_Screenshots/citizen_splash.png" width=270 height=480></td>
+    <td><img src="https://github.com/sanchi0204/NEETRA/blob/master/Readme_Screenshots/citizen_onboard.png" width=270 height=480></td>
+    <td><img src="https://github.com/sanchi0204/NEETRA/blob/master/Readme_Screenshots/citizen_signin.png" width=270 height=480></td>
+  </tr>
+ </table>
+
 # METHODOLOGY
 Model 2: Predict the type of portfolio which will be the best for the user according to the data is entered by them 
 How much percent equity
