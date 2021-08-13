@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinLit">
-        <activity android:name=".Graph"></activity>
+        <activity android:name=".Graph"/>
         <activity android:name=".AnimatedPage" />
         <activity android:name=".UserDetails" />
         <activity android:name=".MainActivity">

@@ -30,10 +30,10 @@ public class Graph extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
 
-                case R.id.settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    overridePendingTransition(0,0);
-                    return true;
+//                case R.id.settings:
+//                    startActivity(new Intent(getApplicationContext(), Settings.class));
+//                    overridePendingTransition(0,0);
+//                    return true;
 
             }
             return false;

@@ -15,14 +15,30 @@
         />
 
     <TextView
+        android:layout_above="@+id/tagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textStyle="bold"
-        android:textSize="@dimen/text_size_normal"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="70sp"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tagline"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tagLine"
+        android:textStyle="italic"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="@dimen/text_size_normal"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

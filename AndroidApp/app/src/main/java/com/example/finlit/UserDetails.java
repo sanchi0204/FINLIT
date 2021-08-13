@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,6 +39,15 @@ public class UserDetails extends AppCompatActivity {
         EditText percentage_edit_text = percentageLayout.findViewById(R.id.card_edit_text);
         String percentage = percentage_edit_text.getText().toString();
 
+        // Years Layout
+        View yearsLayout = findViewById(R.id.yrs_layout);
+        TextView yrs_text = (TextView) yearsLayout.findViewById(R.id.card_text);
+        yrs_text.setText(R.string.yrs_to_invest);
+        ImageView yrs_img = yearsLayout.findViewById(R.id.card_img);
+        yrs_img.setImageResource(R.drawable.yrs_invest);
+        EditText yrs_edit_text = yearsLayout.findViewById(R.id.card_edit_text);
+        String yrs = yrs_edit_text.getText().toString();
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -55,13 +65,20 @@ public class UserDetails extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
 
-                case R.id.settings:
-                    startActivity(new Intent(getApplicationContext(), Settings.class));
-                    overridePendingTransition(0,0);
-                    return true;
+//                case R.id.settings:
+//                    startActivity(new Intent(getApplicationContext(), Settings.class));
+//                    overridePendingTransition(0,0);
+//                    return true;
 
             }
             return false;
+        });
+
+
+        Button btn_evaluate = findViewById(R.id.evaluate);
+        btn_evaluate.setOnClickListener(view -> {
+            Intent i = new Intent(UserDetails.this, AnimatedPage.class);
+            startActivity(i);
         });
     }
 }

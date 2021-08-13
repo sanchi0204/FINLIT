@@ -42,6 +42,7 @@
                 android:layout_marginEnd="@dimen/margin_end" />
 
             <Button
+                android:id="@+id/evaluate"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +80,12 @@
             <!--            android:id="@+id/horizontal_view"-->
             <!--            android:layout_width="wrap_content"-->
             <!--            android:layout_height="wrap_content"-->
-            <!--            >-->
+            <!--
+                   >-->
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -103,22 +109,16 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1" />
 
-                <!--                <include-->
-                <!--                    android:id="@+id/invest_layout"-->
-                <!--                    layout="@layout/card_layout"-->
-                <!--                    android:layout_marginStart="10dp"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"/>-->
-
-                <!--                <include-->
-                <!--                    android:id="@+id/compound_layout"-->
-                <!--                    layout="@layout/card_layout"-->
-                <!--                    android:layout_marginStart="10dp"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"/>-->
+                <include
+                    android:id="@+id/yrs_layout"
+                    layout="@layout/card_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1" />
 
             </LinearLayout>
-            <!--        </HorizontalScrollView>-->
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/risk_text"
