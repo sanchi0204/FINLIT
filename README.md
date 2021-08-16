@@ -5,12 +5,12 @@
 People with very limited experience in investing may be shocked by the news that an average investor loses 50% of his/her portfolio value if not invested correctly.
 There are a some challenges that every investors struggle with, 
 These are: 
-    * Information Overload
-	  * Unknown Risks
-	  * Limited Capital
-	  * Over-Diversification
-	  * Bad Timing
-	  * Not Getting Help etc
+* Information Overload
+* Unknown Risks
+* Limited Capital
+* Over-Diversification
+* Bad Timing
+* Not Getting Help etc
 
 # SOLUTION
 We have developed an “Investment Solution” called FinLit. This application helps the user to manage their investment effectively in order to gain maximum rate of interest.
