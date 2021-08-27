@@ -1,4 +1,4 @@
-# ZetaHacks
+# FinLit
 
 # PROBLEM STATEMENT
 
